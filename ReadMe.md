@@ -2,7 +2,7 @@
 
 ## Cloning this repository
 ```
-git clone git@github.com:AndrewAndJenny/BFMatchCuda.git
+git clone git@github.com:AndrewAndJenny/PICKPTS.git
 ```
 
 ## Contack
