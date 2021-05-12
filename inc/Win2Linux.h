@@ -24,6 +24,10 @@ void _splitpath(const char *path, char *drive, char *dir, char *fname, char *ext
 
 bool copyFile(const char* src, const char* des);
 
+bool isExist(std::string path);
+
+bool createFolder(std::string folder_path);
+
 static void _split_whole_name(const char *whole_name, char *fname, char *ext);
 
 #endif // WIN2LINUX_H

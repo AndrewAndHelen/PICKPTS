@@ -92,6 +92,31 @@ static void _split_whole_name(const char *whole_name, char *fname, char *ext)
 	}
 }
 
+bool isExist(std::string path)
+{
+#ifdef _WIN32
+	if (_access(path.c_str(), 0) == 0)
+		return true;
+	else
+		return false;
+#else defined linux
+	if (access(path.c_str(), 0) == 0)
+		return true;
+	else
+		return false;
+#endif
+}
+
+bool createFolder(std::string folder_path)
+{
+#ifdef _WIN32
+	_mkdir(folder_path.c_str());
+#else defined linux
+	mkdir(folder_path.c_str(), S_IRWXU | S_IRWXG);
+#endif
+	return true;
+}
+
 static bool copyFile(const char* src, const char* des)
 {
 	FILE* pSrc = NULL, *pDes = NULL;
