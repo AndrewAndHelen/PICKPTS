@@ -18,6 +18,7 @@
 #define _MAX_DRIVE 3
 #define _MAX_EXT   32
 
+void _splitpath(std::string path, char *drive, char *dir, char *fname, char *ext);
 
 void _splitpath(const char *path, char *drive, char *dir, char *fname, char *ext);
 

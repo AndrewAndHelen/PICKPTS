@@ -107,7 +107,7 @@ int CPtsRefinor::ReadImageInforFile(string strImageInforFile)
         char szdir_[_MAX_DIR];
         char szfname_[_MAX_FNAME];
         char szext_[_MAX_EXT];
-        _splitpath(m_strEOPath.c_str(), szdrive_, szdir_, szfname_, szext_);
+        _splitpath(m_strEOPath, szdrive_, szdir_, szfname_, szext_);
         sprintf(Infor, "%s%s", szfname_, szext_);
         sprintf(Infor_, "%s.pts", szfname_);
     }

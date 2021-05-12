@@ -1,5 +1,41 @@
 #include "Win2Linux.h"
 
+void _splitpath(std::string path, char *drive, char *dir, char *fname, char *ext)
+{
+	std::string str;
+
+	char pre_char = path[0];
+	str.push_back(path[0]);
+
+	int len = path.size();
+
+	for (int i = 1; i < len; ++i)
+	{
+
+		if (path[i] == '/')
+		{
+			if (pre_char == '/' || pre_char == '\\')
+				continue;
+			else
+				str.push_back(path[i]);
+		}
+		else if (path[i] == '\\')
+		{
+			if (pre_char == '/' || pre_char == '\\')
+				continue;
+			else
+				str.push_back('/');
+		}
+		else
+		{
+			str.push_back(path[i]);
+		}
+
+		pre_char = str.back();
+	}
+	_splitpath(str.c_str(), drive, dir, fname, ext);
+}
+
 void _splitpath(const char *path, char *drive, char *dir, char *fname, char *ext)
 {
 	char *p_whole_name;
@@ -21,7 +57,7 @@ void _splitpath(const char *path, char *drive, char *dir, char *fname, char *ext
 		return;
 	}
 
-	p_whole_name = const_cast<char*>(strchr(path, '/'));
+	p_whole_name = const_cast<char*>(strrchr(path, '/'));
 	if (NULL != p_whole_name)
 	{
 		p_whole_name++;
@@ -43,7 +79,7 @@ static void _split_whole_name(const char *whole_name, char *fname, char *ext)
 {
 	char *p_ext;
 
-	p_ext = const_cast<char*>(strchr(whole_name, '.'));
+	p_ext = const_cast<char*>(strrchr(whole_name, '.'));
 	if (NULL != p_ext)
 	{
 		strcpy(ext, p_ext);

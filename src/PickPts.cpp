@@ -28,7 +28,7 @@ int main (int argc, char *argv[])
         char szdir_[_MAX_DIR];
         char szfname_[_MAX_FNAME];
         char szext_[_MAX_EXT];
-        _splitpath(DirResFile.c_str(), szdrive_, szdir_, szfname_, szext_);
+        _splitpath(DirResFile, szdrive_, szdir_, szfname_, szext_);
         sprintf(GridInfor, "%s%s%s.grid", szdrive_, szdir_, szfname_);
     }
 
