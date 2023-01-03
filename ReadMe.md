@@ -2,7 +2,7 @@
 
 ## Cloning this repository
 ```
-git clone https://github.com/AndrewAndJenny/PICKPTS.git
+git clone https://github.com/AndrewAndHelen/PICKPTS.git
 ```
 
 ## Contack
